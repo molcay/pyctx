@@ -26,6 +26,7 @@ class Context:
         self.thread_name = threading.current_thread().getName()
         self._data = {}
         self.log = ContextLog(self)
+        self.log.start_timer('ALL')
 
     # @property
     # def logger(self):
@@ -48,6 +49,7 @@ class Context:
     def finalize(self) -> dict:
         if self.end_time is None:
             self.end_time = Context.now()
+        self.log.stop_timer('ALL')
         data, timers = self.log.finalize()
 
         return {
@@ -109,7 +111,7 @@ class ContextLog:
     def __init__(self, ctx: Context):
         self._ctx = ctx
         self._data = ContextData()
-        self._timers: Dict[str, datetime or timedelta] = {}
+        self._timers = ContextData()
 
     def get_data(self, key: str, default=None) -> Any:
         return self._data.get(key, default=default)
@@ -167,5 +169,5 @@ class ContextLog:
 
     def finalize(self) -> Tuple[ContextData, Dict]:
         data = self._data.flat()
-        timers = {k: v.total_seconds() for k, v in self._timers.items()}
+        timers = ContextData(**{k: v.total_seconds() for k, v in self._timers.items()}).flat()
         return data, timers

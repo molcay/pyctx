@@ -22,16 +22,16 @@ class TestContext(TestCase):
         ctx = Context({})
         log = ContextLog(ctx)
 
-        with log.timeit('timeit_test'):
+        with log.timeit('timeit/timer1'):
             print("before sleep")
             time.sleep(1)
             print("after 1 secs")
 
         _, timers = log.finalize()
 
-        self.assertTrue('timeit_test' in timers)
-        self.assertDictEqual(timers, {'timeit_test': timers['timeit_test']})
-        self.assertGreaterEqual(timers['timeit_test'], 1)
+        self.assertTrue('timeit' in timers and 'timer1' in timers['timeit'])
+        self.assertDictEqual(timers, {'timeit': {'timer1': timers['timeit']['timer1']}})
+        self.assertGreaterEqual(timers['timeit']['timer1'], 1)
 
     def test_context_log_timer(self):
         ctx = Context({})

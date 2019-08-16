@@ -25,6 +25,7 @@ class TestContext(TestCase):
             'startTime': ctx.start_time.strftime(ctx.__TIMESTAMP_FORMAT__),
             'endTime': ctx.end_time.strftime(ctx.__TIMESTAMP_FORMAT__),
             'timers': {
+                'ALL': dict_to_log['timers']['ALL'],
                 'request': dict_to_log['timers']['request'],
             }
         }
