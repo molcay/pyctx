@@ -77,6 +77,7 @@ class RequestContext(Context):
 
         self.response = None
         self.http_data = None
+        self.view_name = None
 
     def set_response(self, response):
         self.response = response
@@ -84,10 +85,16 @@ class RequestContext(Context):
     def set_http_data(self, data):
         self.http_data = data
 
+    def set_view_name(self, view):
+        self.view_name = view
+
     def finalize(self) -> dict:
         now = RequestContext.now()
         self.end_time = now
         self.log.stop_timer('request', now)
+
+        self.http_data.update({'view': self.view_name})
+
         dict_to_log: dict = {
             **super().finalize(),
             'http': self.http_data,

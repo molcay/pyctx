@@ -15,11 +15,12 @@ class TestContext(TestCase):
         ctx = RequestContext({})
         ctx.set_http_data({})
         ctx.set_response({})
+        ctx.set_view_name('test_view')
         dict_to_log = ctx.finalize()
 
         against = {
             'data': {},
-            'http': {},
+            'http': {"view": "test_view"},
             'type': 'REQ',
             'ctxId': ctx.context_id,
             'startTime': ctx.start_time.strftime(ctx.__TIMESTAMP_FORMAT__),
