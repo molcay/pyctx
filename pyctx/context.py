@@ -66,7 +66,7 @@ class RequestContext(Context):
     def __init__(self, request):
         super(RequestContext, self).__init__('REQ')
         now = Context.now()
-        req_id = uuid.uuid4()
+        req_id = str(uuid.uuid4())
 
         # fill required values
         self.request = request
