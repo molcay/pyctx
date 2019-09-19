@@ -97,6 +97,7 @@ class RequestContext(Context):
 
         dict_to_log: dict = {
             **super().finalize(),
+            'reqId': self.request_id,
             'http': self.http_data,
         }
 
