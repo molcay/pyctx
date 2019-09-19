@@ -23,6 +23,7 @@ class TestContext(TestCase):
             'http': {"view": "test_view"},
             'type': 'REQ',
             'ctxId': ctx.context_id,
+            'reqId': ctx.request_id,
             'startTime': ctx.start_time.strftime(ctx.__TIMESTAMP_FORMAT__),
             'endTime': ctx.end_time.strftime(ctx.__TIMESTAMP_FORMAT__),
             'timers': {
