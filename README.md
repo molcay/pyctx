@@ -1,6 +1,8 @@
 CTX
 ----
-![Pipeline Status](https://gitlab.com/molcay/pyctx/badges/master/pipeline.svg)
+
+[![Pipeline Status](https://gitlab.com/molcay/pyctx/badges/master/pipeline.svg)](https://gitlab.com/molcay/pyctx)
+[![Coverage](https://gitlab.com/molcay/pyctx/badges/master/coverage.svg)](https://gitlab.com/molcay/pyctx)
 
 Context package to use data between function calls, use timers and log it.
 
