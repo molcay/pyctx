@@ -13,7 +13,7 @@ init:
 	pipenv install --dev
 
 test:
-	pipenv run nosetests
+	pipenv run nosetests --with-coverage --cover-package pyctx
 
 publish:
 	make test
