@@ -11,3 +11,15 @@ test:
     - pipenv install --dev
   script:
     - pipenv run nosetests
+
+deploy:
+  stage: Deployment
+  before_script:
+    - pip install 'twine>=1.5.0'
+    - cat $HOME/.pypirc
+    - echo "[pypi]" >> $HOME/.pypirc
+    - echo "  username = __token__" >> $HOME/.pypirc
+    - echo "  password = $PYPI_TOKEN" >> $HOME/.pypirc
+  script:
+    - python setup.py sdist bdist_wheel
+    - echo 'DONE'
