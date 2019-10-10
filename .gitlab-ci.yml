@@ -10,7 +10,7 @@ test:
     - pip install pipenv --upgrade
     - pipenv install --dev
   script:
-    - pipenv run nosetests
+    - pipenv run nosetests --with-coverage --cover-package pyctx
 
 deploy:
   stage: Deployment
