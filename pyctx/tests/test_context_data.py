@@ -46,4 +46,3 @@ class TestContextData(TestCase):
     def test_flat_method(self):
         self.assertDictEqual(self.cd.flat(), self.wanted_dict_flat)
         self.assertEqual(json.dumps(self.cd.flat()), json.dumps(self.wanted_dict_flat))
-

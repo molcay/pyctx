@@ -1,4 +1,3 @@
-import json
 from unittest import TestCase
 
 from ..context import Context, RequestContext, ContextLog
@@ -33,4 +32,3 @@ class TestContext(TestCase):
         }
 
         self.assertDictEqual(dict_to_log, against)
-

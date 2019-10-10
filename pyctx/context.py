@@ -5,7 +5,7 @@ import uuid
 import logging
 from logging import Logger
 from typing import Dict, Any, Tuple
-from datetime import datetime, timedelta
+from datetime import datetime
 from contextlib import contextmanager
 
 from .context_data import ContextData

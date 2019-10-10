@@ -1,0 +1,19 @@
+[flake8]
+max-line-length=120
+
+################### FILE PATTERNS ##########################
+
+# Provide a comma-separated list of glob patterns to exclude from checks.
+exclude =
+    # git folder
+    .git,
+    # python cache
+    __pycache__,
+    .venv,
+
+# Provide a comma-separate list of glob patterns to include for checks.
+filename =
+    *.py
+
+per-file-ignores =
+    project/settings/*:F403,F405
