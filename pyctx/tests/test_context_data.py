@@ -46,3 +46,20 @@ class TestContextData(TestCase):
     def test_flat_method(self):
         self.assertDictEqual(self.cd.flat(), self.wanted_dict_flat)
         self.assertEqual(json.dumps(self.cd.flat()), json.dumps(self.wanted_dict_flat))
+
+    def test_flat_method_with_raw_data(self):
+        cd = ContextData()
+        cd.update({
+            "x": {
+                "w": 5,
+            },
+            "x/y": {
+                "a": 3,
+            },
+            "x/y/z": 5,
+            "x/t/w/b": 6,
+            "x/t/w": {
+                "a": 7,
+            },
+        })
+        print(json.dumps(cd.flat()))
