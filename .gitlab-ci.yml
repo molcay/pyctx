@@ -7,10 +7,10 @@ stages:
 test:
   stage: Testing
   before_script:
-    - pip install pipenv --upgrade
+    - make init
     - pipenv install --dev
   script:
-    - pipenv run nosetests --with-coverage --cover-package pyctx
+    - make test
     - pipenv run python -m flake8 .
 
 deploy:
