@@ -9,15 +9,19 @@ clean-build:
 	rm --force --recursive *.egg-info
 
 init:
-	pip install pipenv --upgrade
-	pipenv install --dev
+	pip install poetry --upgrade
+	poetry install --dev
 
 test:
-	pipenv run nosetests --with-coverage --cover-package pyctx
+	poetry run coverage run --source pyctx -m unittest discover
+	poetry run coverage report -m
 
-publish:
+build:
 	make test
 	pip install 'twine>=1.5.0'
 	python setup.py sdist bdist_wheel
+
+publish:
+	make build
 	twine upload dist/*
 	rm -fr build dist .egg pyctx.egg-info
