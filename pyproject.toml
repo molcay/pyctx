@@ -6,7 +6,7 @@ authors = ["M. Olcay TERCANLI <molcay@mail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "3.8.5"
+python = ">3.8.5"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.3.1"
