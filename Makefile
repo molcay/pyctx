@@ -10,7 +10,7 @@ clean-build:
 
 init:
 	pip install poetry --upgrade
-	poetry install --dev
+	poetry install
 
 test:
 	poetry run coverage run --source pyctx -m unittest discover
