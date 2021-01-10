@@ -41,10 +41,10 @@ def main():
     print(json.dumps(to_log))
     """
     {
-        "type": "example_customized_ctx", "ctxId": "cyIwzNrc", 
-        "startTime": "2021-01-10 10:32:20.912046", "endTime": "2021-01-10 10:32:20.912369", 
-        "data": {"math": {"pi": 3.14, "e": 2.72}}, 
-        "timers": {"ALL": 2.9e-05}, 
+        "type": "example_customized_ctx", "ctxId": "cyIwzNrc",
+        "startTime": "2021-01-10 10:32:20.912046", "endTime": "2021-01-10 10:32:20.912369",
+        "data": {"math": {"pi": 3.14, "e": 2.72}},
+        "timers": {"ALL": 2.9e-05},
         "pid": 31132, "ppid": 4561, "gid": 20, "uid": 501
     }
     """
