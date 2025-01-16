@@ -1,0 +1,27 @@
+image: "python:3.10"
+
+variables:
+  UV_VERSION: 0.5
+  PYTHON_VERSION: 3.10
+  BASE_LAYER: bookworm-slim
+
+
+stages:
+  - Testing
+  - Deployment
+
+test:
+  stage: Testing
+  before_script:
+    - make init
+  script:
+    - make test
+    - make check
+
+deploy:
+  stage: Deployment
+  before_script:
+    - export UV_PUBLISH_USERNAME=__token__
+    - export UV_PUBLISH_PASSWORD=$PYPI_TOKEN
+  script:
+    - make publish
